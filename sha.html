@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shareholders' Agreement Questionnaire</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+    h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    .question-block { margin-bottom: 20px; }
+    label { font-weight: bold; display: block; margin-bottom: 5px; }
+    input, textarea, select { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+    .explanation { font-size: 0.9em; color: #555; margin-bottom: 5px; }
+    .sample { font-size: 0.9em; color: #777; font-style: italic; margin-bottom: 10px; }
+    .multi-entry { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; background: #f9f9f9; }
+    .multi-entry-group { margin-bottom: 15px; }
+    button { padding: 10px 15px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Shareholders' Agreement Questionnaire</h1>
+  <form action="https://formsubmit.co/nigel@tayloremmet.co.uk" method="POST">
+
+    <h2>1. Company Information</h2>
+    <div class="question-block">
+      <label for="company-name">Company Name</label>
+      <div class="explanation">Full legal name of the company registered with Companies House.</div>
+      <div class="sample">e.g., Taylor Emmet Holdings Ltd.</div>
+      <input type="text" id="company-name" name="company-name" required>
+    </div>
+    <div class="question-block">
+      <label for="registration-number">Company Registration Number</label>
+      <div class="explanation">Unique ID issued by Companies House.</div>
+      <div class="sample">e.g., 12345678</div>
+      <input type="text" id="registration-number" name="registration-number">
+    </div>
+    <div class="question-block">
+      <label for="registered-office">Registered Office Address</label>
+      <div class="explanation">The official address for legal correspondence.</div>
+      <div class="sample">e.g., 1 High Street, Sheffield, S1 1AB</div>
+      <textarea id="registered-office" name="registered-office"></textarea>
+    </div>
+    <div class="question-block">
+      <label for="business-nature">Nature of the Business</label>
+      <div class="explanation">Briefly describe what the company does.</div>
+      <div class="sample">e.g., Legal services, software development.</div>
+      <textarea id="business-nature" name="business-nature"></textarea>
+    </div>
+
+    <h2>2. Shareholder Details</h2>
+    <div class="explanation">List each shareholder's name, address, shares held, and acquisition date.</div>
+    <div id="shareholder-section">
+      <div class="multi-entry">
+        <div class="multi-entry-group">
+          <label>Shareholder Name</label>
+          <input type="text" name="shareholder-name[]">
+        </div>
+        <div class="multi-entry-group">
+          <label>Shareholder Address</label>
+          <input type="text" name="shareholder-address[]">
+        </div>
+        <div class="multi-entry-group">
+          <label>Number and Class of Shares Held</label>
+          <input type="text" name="shares-held[]">
+        </div>
+        <div class="multi-entry-group">
+          <label>Date of Acquisition</label>
+          <input type="date" name="acquisition-date[]">
+        </div>
+      </div>
+    </div>
+    <button type="button" onclick="addShareholder()">Add Another Shareholder</button>
+
+    <br><br>
+    <button type="submit">Submit Form</button>
+  </form>
+
+  <script>
+    function addShareholder() {
+      const section = document.getElementById('shareholder-section');
+      const entry = document.createElement('div');
+      entry.className = 'multi-entry';
+      entry.innerHTML = `
+        <div class="multi-entry-group">
+          <label>Shareholder Name</label>
+          <input type="text" name="shareholder-name[]">
+        </div>
+        <div class="multi-entry-group">
+          <label>Shareholder Address</label>
+          <input type="text" name="shareholder-address[]">
+        </div>
+        <div class="multi-entry-group">
+          <label>Number and Class of Shares Held</label>
+          <input type="text" name="shares-held[]">
+        </div>
+        <div class="multi-entry-group">
+          <label>Date of Acquisition</label>
+          <input type="date" name="acquisition-date[]">
+        </div>
+      `;
+      section.appendChild(entry);
+    }
+  </script>
+</body>
+</html>
